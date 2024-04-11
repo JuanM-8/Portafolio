@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap");
 html {
   scroll-behavior: smooth;
+  scrollbar-color: #16171a transparent;
 }
 * {
   margin: 0;
@@ -15,7 +16,7 @@ body {
 .glow {
   position: absolute;
   left: 50%;
-  width: 40em;
+  width: 30%;
   height: 50%;
   border-radius: 30%;
   display: block;
@@ -28,18 +29,18 @@ body {
 
 header {
   position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   top: 0;
   height: 3.4em;
   margin: 0;
-  padding: 0 1em;
-  display: flex;
+  padding: 0 15%;
   backdrop-filter: blur(10px);
   z-index: 3;
   border-bottom: 1px solid rgba(255, 255, 255, 0.272);
 }
 header nav {
-  width: 80%;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -60,7 +61,8 @@ header nav a:hover {
 
 .about {
   display: flex;
-  padding: 6rem 20rem;
+  padding: 10% 15%;
+  position: relative;
 }
 .about .descripcion {
   width: 50%;
@@ -72,16 +74,16 @@ header nav a:hover {
   justify-content: space-evenly;
 }
 .about .descripcion h1 {
-  font-size: 4rem;
+  font-size: clamp(2rem, -2.75rem + 12vw, 4rem);
   color: #e2e3a4;
 }
 .about .descripcion h3 {
   color: rgba(255, 255, 255, 0.691);
-  font-size: 2.5rem;
+  font-size: clamp(1rem, -2.75rem + 12vw, 4rem);
 }
 .about .descripcion p {
   color: white;
-  font-size: 1.2rem;
+  font-size: clamp(0.75rem, 0.895vw + 0.176rem, 1.25rem);
 }
 .about .imagen {
   width: 50%;
@@ -93,15 +95,13 @@ header nav a:hover {
 }
 .about .imagen .foto {
   border-radius: 50%;
-  width: 300px;
+  width: 50%;
   transition: 0.5s linear;
 }
 .about .imagen .foto:hover {
   transform: skewY(8deg);
 }
-.redes {
-  margin-top: 20px;
-}
+
 .redes img {
   width: 35px;
   margin: 10px;
@@ -115,8 +115,9 @@ header nav a:hover {
   position: relative;
   display: flex;
   flex-direction: column;
-  padding: 3rem 20rem;
+  padding: 1% 15%;
   justify-content: center;
+  width: 100%;
 }
 .proyectos h1,
 .certificados h1,
@@ -179,6 +180,7 @@ header nav a:hover {
 
 .proyecto_cards img {
   width: 90%;
+  border-radius: 10px;
 }
 
 .proyecto_cards .lg img {
@@ -193,7 +195,7 @@ header nav a:hover {
   flex-direction: column;
   align-items: center;
 }
-.certificados .imgC {
+.imgC {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 50px;
@@ -206,6 +208,10 @@ header nav a:hover {
   height: 400px;
   border: 1px solid rgba(128, 128, 128, 0.491);
   border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+.carousel {
+  width: 100%;
 }
 .containerI .certificados_img {
   position: absolute;
@@ -280,4 +286,109 @@ footer {
   display: flex;
   color: rgba(255, 255, 255, 0.451);
   place-content: center;
+}
+.abrir-menu,
+.cerrar-menu {
+  display: none;
+}
+
+@media screen and (max-width: 550px) {
+  header img {
+    display: none;
+  }
+  .abrir-menu,
+  .cerrar-menu {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 50%;
+    border: 0;
+    font-size: 2rem;
+    background-color: transparent;
+    cursor: pointer;
+    transform: translateX(50%);
+  }
+
+  .abrir-menu {
+    color: #ececec;
+  }
+
+  .cerrar-menu {
+    color: #ececec;
+  }
+
+  .nav {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: absolute;
+    top: 0;
+    right: 50%;
+    background-color: #1c1c1c;
+    padding: 1rem;
+    transform: translate(50%, 0);
+    height: 20vh;
+    width: 100%;
+  }
+
+  .nav.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    margin-top: 30px;
+    justify-content: space-evenly;
+    & a {
+      margin: 0;
+    }
+  }
+  .imagen {
+    position: absolute;
+    top: 20px;
+    right: 50%;
+    transform: translate(50%);
+  }
+  .proyectos,
+  .skills,
+  .certificados {
+    padding: 10% 15%;
+  }
+
+  .about .descripcion {
+    width: 100%;
+    text-align: center;
+    margin-top: 150px;
+  }
+  .proyectos .container_p {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .proyectos .proyecto_cards {
+    height: 250px;
+  }
+  .proyecto_cards .lg img {
+    width: 35px;
+  }
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x:scroll ;
+    
+  }
+
+  
+  .imgC {
+    display: flex;
+    width: max-content;
+  }
+  .containerI {
+    width: 300px;
+    height: 250px;
+  }
 }
