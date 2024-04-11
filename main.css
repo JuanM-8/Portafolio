@@ -378,17 +378,18 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-x:scroll ;
     
   }
 
-  
   .imgC {
     display: flex;
-    width: max-content;
+    overflow-x: auto; 
   }
+
   .containerI {
-    width: 300px;
+    width: 350px;
     height: 250px;
+
+    flex: 0 0 auto; /* Permitir que los contenedores se ajusten automáticamente a su contenido */
   }
 }
