@@ -25,6 +25,14 @@ body {
   will-change: transform;
   filter: blur(100px);
   z-index: -1;
+  
+}
+#separador {
+  display: flex;
+  place-content: center;
+  & svg {
+    transition: 0.5s ease-in;
+  }
 }
 
 header {
@@ -391,5 +399,8 @@ footer {
     height: 250px;
 
     flex: 0 0 auto; /* Permitir que los contenedores se ajusten automáticamente a su contenido */
+  }
+  #separador{
+    display: none;
   }
 }
