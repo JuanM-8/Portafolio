@@ -205,6 +205,7 @@ header nav a:hover {
 
 .proyecto_cards .lg img {
   width: 60px;
+  transition: .3s linear;
 }
 .proyecto_cards .lg img:hover {
   filter: drop-shadow(0px 0px 4px #ffffff);
@@ -407,8 +408,8 @@ footer {
   }
 
   .containerI {
-    width: 350px;
-    height: 250px;
+    width: 300px;
+    height: 200px;
 
     flex: 0 0 auto; /* Permitir que los contenedores se ajusten automáticamente a su contenido */
   }
